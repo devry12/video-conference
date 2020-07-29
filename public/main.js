@@ -57,12 +57,11 @@ function addVideoStream(video, stream) {
 }
 
 function connectToNewUser(userId, stream) {
-    console.log("user connected " + userId);
-    console.log(stream);
     const call = mypeer.call(userId, stream);
     const video = document.createElement('video')
     video.classList.add('card')
     call.on('stream', userVideoStream => {
+        console.log(userVideoStream);
         addVideoStream(video, userVideoStream)
     })
     call.on('close', () => {
