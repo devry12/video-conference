@@ -4,8 +4,6 @@ const mypeer = new Peer({
     host: 'https://video.devrykawiryan.id/peerjs',
 })
 
-console.log(mypeer);
-
 const myVideo = document.createElement('video')
 myVideo.muted = true
 myVideo.classList.add('card')
@@ -31,6 +29,7 @@ navigator.mediaDevices.getUserMedia({
         })
 
         socket.on('user-connected', userId => {
+            console.log(stream);
             connectToNewUser(userId, stream)
         })
 
