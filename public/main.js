@@ -1,4 +1,4 @@
-const socket = io('/')
+const socket = io('/:5000')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer(undefined, {
     host: '/',
