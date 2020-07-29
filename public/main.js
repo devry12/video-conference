@@ -2,7 +2,7 @@ const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer(undefined, {
     host: '/',
-    path: '/peerjs',
+    path: 'peerjs',
 })
 
 console.log(mypeer);
@@ -56,6 +56,8 @@ function addVideoStream(video, stream) {
 }
 
 function connectToNewUser(userId, stream) {
+    console.log("user connected " + userId);
+    console.log(stream);
     const call = mypeer.call(userId, stream);
     const video = document.createElement('video')
     video.classList.add('card')
