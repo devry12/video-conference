@@ -4,6 +4,7 @@ const app = express();
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
+const log = require('simple-node-logger').createSimpleLogger();
 var Turn = require('node-turn');
 const { ExpressPeerServer } = require('peer');
 const options = {
@@ -18,6 +19,7 @@ var turnServer = new Turn({
       username: "devry-server"
     }
   });
+  console.log();
   turnServer.start();
 
 app.get('/', (req, res) => {
