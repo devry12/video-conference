@@ -4,13 +4,21 @@ const app = express();
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
+var Turn = require('node-turn');
 const { ExpressPeerServer } = require('peer');
 const options = {
     debug: 3,
 }
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
-
+var turnServer = new Turn({
+    // set options
+    authMech: 'long-term',
+    credentials: {
+      username: "devry-server"
+    }
+  });
+  turnServer.start();
 
 app.get('/', (req, res) => {
     res.redirect(`/${uuidV4()}`)

@@ -8,6 +8,7 @@ const mypeer = new Peer({
     config: {
         'iceServers': [
             { url: 'stun:stun.l.google.com:19302' },
+            { url: 'video.devrykawiryan.id', credential: 'devry-server' }
         ]
     }
 })
