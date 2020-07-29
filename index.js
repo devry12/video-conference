@@ -7,6 +7,10 @@ const { v4: uuidV4 } = require('uuid')
 var peerExpress = require('peer').ExpressPeerServer;
 const options = {
     debug: true,
+    'iceServers': [
+        { url: 'stun:stun.l.google.com:19302' },
+        { url: 'turn:homeo@turn.bistri.com:80', credential: 'homeo' }
+    ]
 }
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
@@ -15,6 +19,9 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.redirect(`/${uuidV4()}`)
 })
+
+app.use('/peerjs', peerExpress(server, options))
+
 
 app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room })
@@ -35,4 +42,3 @@ const con = server.listen(port, () => {
     console.log("server running on port " + port);
 })
 
-app.use('/peerjs', peerExpress(con, options))
