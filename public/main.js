@@ -57,10 +57,8 @@ function connectToNewUser(userId, stream) {
         addVideoStream(video, userVideoStream)
     })
     call.on('close', () => {
-        console.log("connection close");
         video.remove()
     })
 
     peers[userId] = call
-    console.log(call);
 }
