@@ -2,6 +2,7 @@ const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer({
     host: '/',
+    debug: true,
     path: '/peerjs',
 })
 
@@ -50,7 +51,7 @@ mypeer.on('open', id => {
 
 function addVideoStream(video, stream) {
     video.srcObject = stream
-    
+
     video.addEventListener('loadedmetadata', () => {
         video.play()
     })
