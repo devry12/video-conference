@@ -50,6 +50,7 @@ mypeer.on('open', id => {
 
 function addVideoStream(video, stream) {
     video.srcObject = stream
+    console.log(video);
     video.addEventListener('loadedmetadata', () => {
         video.play()
     })
@@ -61,7 +62,6 @@ function connectToNewUser(userId, stream) {
     const video = document.createElement('video')
     video.classList.add('card')
     call.on('stream', userVideoStream => {
-        console.log(userVideoStream);
         addVideoStream(video, userVideoStream)
     })
     call.on('close', () => {
