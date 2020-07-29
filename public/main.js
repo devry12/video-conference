@@ -5,6 +5,8 @@ const mypeer = new Peer(undefined, {
     path: '/peerjs',
 })
 
+console.log(mypeer);
+
 const myVideo = document.createElement('video')
 myVideo.muted = true
 myVideo.classList.add('card')
