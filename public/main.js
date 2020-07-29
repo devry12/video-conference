@@ -6,11 +6,14 @@ const mypeer = new Peer({
     path: '/peerjs',
 })
 
-console.log(mypeer);
-
 const myVideo = document.createElement('video')
 myVideo.muted = true
 myVideo.classList.add('card')
+
+mypeer.on('open', function () {
+    // here you have conn.id
+   console.log(mypeer.id);
+});
 
 const peers = {}
 
