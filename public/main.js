@@ -1,7 +1,7 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer(undefined, {
-    host: '/',
+    host: '/peerjs',
     path: '/video-app',
 })
 
