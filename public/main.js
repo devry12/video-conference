@@ -3,7 +3,8 @@ const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer({
     host: 'peer-js-test-devry.herokuapp.com',
     path: '/peerjs/myapp',
-    secure: true, 
+    secure: true,
+    debug: 3
 })
 
 
