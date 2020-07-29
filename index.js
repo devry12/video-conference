@@ -7,7 +7,7 @@ const { v4: uuidV4 } = require('uuid')
 var peerExpress = require('peer').ExpressPeerServer;
 const options = {
     debug: true,
-    path:'/peerjs',
+    path:'/video-app',
 }
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
