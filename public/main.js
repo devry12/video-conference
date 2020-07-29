@@ -6,14 +6,11 @@ const mypeer = new Peer({
     path: '/peerjs',
 })
 
+
+
 const myVideo = document.createElement('video')
 myVideo.muted = true
 myVideo.classList.add('card')
-
-mypeer.on('open', function () {
-    // here you have conn.id
-   console.log(mypeer.id);
-});
 
 const peers = {}
 
@@ -36,14 +33,15 @@ navigator.mediaDevices.getUserMedia({
         })
 
         socket.on('user-connected', userId => {
-            console.log(userId);
             connectToNewUser(userId, stream)
         })
 
 
 
     }
-))
+)).catch(err => {
+    alert(err);
+})
 socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
 })
