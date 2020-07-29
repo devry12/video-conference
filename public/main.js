@@ -76,7 +76,7 @@ function connectToNewUser(userId, stream) {
         addVideoStream(video, userVideoStream)
     })
 
-    call.on('close',()=>{
+    call.on('disconnected',()=>{
         video.remove()
     })
 
