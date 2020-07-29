@@ -7,10 +7,6 @@ const { v4: uuidV4 } = require('uuid')
 var peerExpress = require('peer').ExpressPeerServer;
 const options = {
     debug: true,
-    'iceServers': [
-        { url: 'stun:stun.l.google.com:19302' },
-        { url: 'turn:homeo@turn.bistri.com:80', credential: 'homeo' }
-    ]
 }
 app.set('view engine', 'ejs')
 app.use(express.static('public'));

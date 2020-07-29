@@ -13,7 +13,7 @@ myVideo.muted = true
 myVideo.classList.add('card')
 
 const peers = {}
-
+console.log(mypeer);
 navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true,
@@ -39,8 +39,8 @@ navigator.mediaDevices.getUserMedia({
 
 
     }
-)).catch((error)=>{
-    alert("error "+error)
+)).catch((error) => {
+    alert("error " + error)
 })
 socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
