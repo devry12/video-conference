@@ -1,7 +1,7 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer({
-    host: '/',
+    host: 'video.devrykawiryan.id',
     path: '/peerjs/myapp',
     secure: true,
     debug: 3,
@@ -72,7 +72,6 @@ function connectToNewUser(userId, stream) {
     video.classList.add('ml-4')
 
     call.on('stream', userVideoStream => {
-        alert("Userid : "+userId)
         addVideoStream(video, userVideoStream)
     })
 
