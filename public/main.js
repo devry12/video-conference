@@ -1,8 +1,11 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer({
-    host: 'https://video.devrykawiryan.id/peerjs',
+    host: '/',
+    path: '/peerjs',
 })
+
+console.log(mypeer);
 
 const myVideo = document.createElement('video')
 myVideo.muted = true
