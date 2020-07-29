@@ -8,7 +8,11 @@ const mypeer = new Peer({
     config: {
         'iceServers': [
             { url: 'stun:stun.l.google.com:19302' },
-            { url: 'turns:video.devrykawiryan.id', credential: 'devry-server' }
+            {
+                url: 'turn:numb.viagenie.ca',
+                credential: 'muazkh',
+                username: 'webrtc@live.com'
+            },
         ]
     }
 })
