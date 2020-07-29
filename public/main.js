@@ -39,8 +39,8 @@ navigator.mediaDevices.getUserMedia({
 
 
     }
-)).catch(err => {
-    alert(err);
+)).catch((error)=>{
+    alert("error "+error)
 })
 socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
