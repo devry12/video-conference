@@ -51,7 +51,7 @@ navigator.mediaDevices.getUserMedia({
     }
 ))
 socket.on('user-disconnected', userId => {
-    alert("userid "+userId+" telah keluar")
+    alert("userid " + userId + " telah keluar")
     if (peers[userId]) peers[userId].close()
 })
 mypeer.on('open', id => {
@@ -73,13 +73,15 @@ function connectToNewUser(userId, stream) {
     video.classList.add('card')
     video.classList.add('ml-4')
 
+    call.on('close', () => {
+        video.remove()
+    })
+
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream)
     })
 
-    call.on('close',()=>{
-        video.remove()
-    })
+
 
     peers[userId] = call
 }
