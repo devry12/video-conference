@@ -4,7 +4,13 @@ const mypeer = new Peer({
     host: 'peer-js-test-devry.herokuapp.com',
     path: '/peerjs/myapp',
     secure: true,
-    debug: 3
+    debug: 3,
+    config: {
+        'iceServers': [
+            { url: 'stun:stun.l.google.com:19302' },
+            { url: 'turn:homeo@turn.bistri.com:80', credential: 'homeo' }
+        ]
+    }
 })
 
 
