@@ -53,7 +53,6 @@ socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
 })
 mypeer.on('open', id => {
-    alert(id)
     socket.emit('join-room', ROOM_ID, id)
 
 })
@@ -71,10 +70,13 @@ function connectToNewUser(userId, stream) {
     const call = mypeer.call(userId, stream);
     const video = document.createElement('video')
     video.classList.add('card')
+    video.classList.add('ml-4')
+
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream)
     })
     call.on('close', () => {
+        alert('close '+userId)
         video.remove()
     })
 
