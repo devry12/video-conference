@@ -50,6 +50,7 @@ navigator.mediaDevices.getUserMedia({
     }
 ))
 socket.on('user-disconnected', userId => {
+    alert("userid "+userId+" telah keluar")
     if (peers[userId]) peers[userId].close()
 })
 mypeer.on('open', id => {
