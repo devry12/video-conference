@@ -17,11 +17,10 @@ app.get('/', (req, res) => {
 
 const peerServer = ExpressPeerServer(server, {
     path: '/myapp'
-  });
+});
 
-  peerServer.on('connection', (client) => { console.log(client.setSocket);});
-  
-  app.use('/peerjs', peerServer);
+
+app.use('/peerjs', peerServer);
 
 app.get('/:room', (req, res) => {
     res.render('room', { roomId: req.params.room })
