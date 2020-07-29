@@ -28,6 +28,7 @@ navigator.mediaDevices.getUserMedia({
             video.classList.add('card')
             video.classList.add('ml-4')
             call.on('stream', userVideoStream => {
+                console.log(userVideoStream);
                 addVideoStream(video, userVideoStream)
             })
         })
