@@ -17,9 +17,10 @@ app.get('/', (req, res) => {
 })
 
 const peerServer = ExpressPeerServer(server, {
-    debug: true,
     path: '/myapp'
   });
+
+  peerServer.on('connection', (client) => { console.log(client.setSocket);});
   
   app.use('/peerjs', peerServer);
 

@@ -1,22 +1,9 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer({
-    host: '/',
-    debug: true,
+    host: 'peer-js-test-devry.herokuapp.com',
     path: '/peerjs/myapp',
-    config: {
-        'iceServers': [
-            { url: 'stun:stun01.sipphone.com' },
-            { url: 'stun:stun.ekiga.net' },
-            { url: 'stun:stunserver.org' },
-            { url: 'stun:stun.softjoys.com' },
-            { url: 'stun:stun.voiparound.com' },
-            { url: 'stun:stun.voipbuster.com' },
-            { url: 'stun:stun.voipstunt.com' },
-            { url: 'stun:stun.voxgratia.org' },
-            { url: 'stun:stun.xten.com' }
-        ]
-    },
+    secure: true, 
 })
 
 

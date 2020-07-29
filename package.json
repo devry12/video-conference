@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "peerjs":"peerjs --port 9000 --key peerjs --path /myapp"
   },
   "author": "",
   "license": "ISC",
