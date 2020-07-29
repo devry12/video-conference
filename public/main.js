@@ -8,6 +8,7 @@ const mypeer = new Peer(undefined, {
 
 const myVideo = document.createElement('video')
 myVideo.muted = true
+myVideo.classList.add('card')
 
 const peers = {}
 
@@ -56,6 +57,7 @@ function addVideoStream(video, stream) {
 function connectToNewUser(userId, stream) {
     const call = mypeer.call(userId, stream);
     const video = document.createElement('video')
+    video.classList.add('card')
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream)
     })
