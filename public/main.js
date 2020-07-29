@@ -21,6 +21,8 @@ navigator.mediaDevices.getUserMedia({
         mypeer.on('call', call => {
             call.answer(stream)
             const video = document.createElement('video');
+            video.classList.add('card')
+            video.classList.add('ml-4')
             call.on('stream', userVideoStream => {
                 addVideoStream(video, userVideoStream)
             })
