@@ -2,8 +2,9 @@ const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const mypeer = new Peer({
     host: '/',
+    port:3000,
     debug: true,
-    path: '/peerjs',
+    path: '/peerjs/myapp',
 })
 
 
@@ -13,7 +14,6 @@ myVideo.muted = true
 myVideo.classList.add('card')
 
 const peers = {}
-console.log(mypeer);
 navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true,
@@ -28,7 +28,6 @@ navigator.mediaDevices.getUserMedia({
             video.classList.add('card')
             video.classList.add('ml-4')
             call.on('stream', userVideoStream => {
-                console.log(userVideoStream);
                 addVideoStream(video, userVideoStream)
             })
         })
