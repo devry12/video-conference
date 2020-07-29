@@ -42,6 +42,7 @@ navigator.mediaDevices.getUserMedia({
         })
 
         socket.on('user-connected', userId => {
+            alert('user terpangil')
             connectToNewUser(userId, stream)
         })
 
@@ -76,7 +77,7 @@ function connectToNewUser(userId, stream) {
         addVideoStream(video, userVideoStream)
     })
 
-    call.on('disconnected',()=>{
+    call.on('close',()=>{
         video.remove()
     })
 
