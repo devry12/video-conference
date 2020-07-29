@@ -62,4 +62,5 @@ function connectToNewUser(userId, stream) {
     })
 
     peers[userId] = call
+    console.log(call);
 }
