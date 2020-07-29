@@ -76,7 +76,7 @@ function connectToNewUser(userId, stream) {
         addVideoStream(video, userVideoStream)
     })
 
-    call.on('close', () => {
+    mypeer.on('close', () => {
         alert('close '+userId)
         video.remove()
     })
