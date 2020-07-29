@@ -35,14 +35,12 @@ navigator.mediaDevices.getUserMedia({
             call.answer(stream)
             const video = document.createElement('video');
             video.classList.add('card')
-            video.classList.add('ml-4')
             call.on('stream', userVideoStream => {
                 addVideoStream(video, userVideoStream)
             })
         })
 
         socket.on('user-connected', userId => {
-            alert('user terpangil')
             connectToNewUser(userId, stream)
         })
 
@@ -51,7 +49,6 @@ navigator.mediaDevices.getUserMedia({
     }
 ))
 socket.on('user-disconnected', userId => {
-    alert("userid " + userId + " telah keluar")
     if (peers[userId]) peers[userId].close()
 })
 mypeer.on('open', id => {
