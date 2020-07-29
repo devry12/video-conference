@@ -6,7 +6,8 @@ const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 var peerExpress = require('peer').ExpressPeerServer;
 const options = {
-    debug: true
+    debug: true,
+    path:'/peerjs',
 }
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
