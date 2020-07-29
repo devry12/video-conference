@@ -1,7 +1,7 @@
 const express = require('express');
 const port = process.env.PORT || 3000
 const app = express();
-const server = require('http').Server(app)
+const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
 var peerExpress = require('peer').ExpressPeerServer;
