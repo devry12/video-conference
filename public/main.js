@@ -50,8 +50,8 @@ mypeer.on('open', id => {
 
 function addVideoStream(video, stream) {
     video.srcObject = stream
-    console.log(video.srcObject);
-    video.addEventListener('loadedmetadata', () => {
+    
+    video.addEventListener('loadeddata', () => {
         video.play()
     })
     videoGrid.append(video)
