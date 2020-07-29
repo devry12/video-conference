@@ -21,7 +21,6 @@ navigator.mediaDevices.getUserMedia({
 }).then((
     stream => {
         addVideoStream(myVideo, stream)
-
         mypeer.on('call', call => {
             call.answer(stream)
             const video = document.createElement('video');
@@ -39,13 +38,12 @@ navigator.mediaDevices.getUserMedia({
 
 
     }
-)).catch((error) => {
-    alert("error " + error)
-})
+))
 socket.on('user-disconnected', userId => {
     if (peers[userId]) peers[userId].close()
 })
 mypeer.on('open', id => {
+    alert(id)
     socket.emit('join-room', ROOM_ID, id)
 
 })
