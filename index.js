@@ -11,7 +11,6 @@ const options = {
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
 
-app.use('/peerjs', peerExpress(server, options))
 
 app.get('/', (req, res) => {
     res.redirect(`/${uuidV4()}`)
@@ -32,6 +31,8 @@ io.on('connection', socket => {
     })
 })
 
-server.listen(port, () => {
+const con = server.listen(port, () => {
     console.log("server running on port " + port);
 })
+
+app.use('/peerjs', peerExpress(con, options))
